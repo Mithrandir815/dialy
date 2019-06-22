@@ -1,22 +1,23 @@
 {% extends 'nikki/base.html' %}
 
 {% block content %}
-<h1>dialy</h1>
-<table class="table">
-  <thead>
+<p>{{ day.title }}</p>
+<form action="" method="post">
+  <table>
     <tr>
-      <th>Title</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for day in day_list %}
-    <tr>
+      <th>タイトル</th>
       <td>{{ day.title }}</td>
-      <td>{{ day.date }}</td>
-      <td><a href="{% url 'nikki:update' day.pk %}">Update</a></td>
     </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <tr>
+      <th>本文</th>
+      <td>{{ day.text }}</td>
+    </tr>
+    <tr>
+      <th>日付</th>
+      <td>{{ day.date }}</td>
+    </tr>
+  </table>
+<button type="submit" class="btn btn-primary">送信</button>
+{% csrf_token %}
+</form>
 {% endblock %}

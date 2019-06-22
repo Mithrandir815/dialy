@@ -1,10 +1,9 @@
 {% extends 'nikki/base.html' %}
 
 {% block content %}
-
 <form action="" method="POST">
-{{ form.as_p }}
-<button type="submit">送信</button>
-{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">送信</button>
+    {% csrf_token %}
 </form>
 {% endblock %}

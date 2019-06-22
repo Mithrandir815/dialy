@@ -7,16 +7,19 @@
     <tr>
       <th>Title</th>
       <th>Date</th>
+      <th>#</th>
     </tr>
   </thead>
   <tbody>
     {% for day in day_list %}
     <tr>
-      <td>{{ day.title }}</td>
       <td>{{ day.date }}</td>
       <td><a href="{% url 'nikki:update' day.pk %}">Update</a></td>
+      <td><a href="{% url 'nikki:delete' day.pk %}">Delete</a></td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
+{% include 'nikki/pageT.html' %}
+
 {% endblock %}
